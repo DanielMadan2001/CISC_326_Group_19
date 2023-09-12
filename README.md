@@ -1,1 +1,1 @@
-# CISC_326_Group_19
+# CISC 326 2023 project (Group 19)
