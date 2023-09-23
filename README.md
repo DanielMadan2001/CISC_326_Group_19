@@ -1,1 +1,1 @@
-# CISC 326 2023 project (Group 19)
+# CISC 326 2023 project Mystery Inc.
