@@ -1,30 +1,256 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Mystery Inc. - CISC 322/326 Group Project 2023</title>
-		<link rel="icon" href="images/icon.png">
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #19393a;
+        /* A lighter gray that still keeps the dark theme */
+        border-radius: 15px;
+    }
 
-	<body>
-		<img src="images/logo.png">
-		<h2> CISC 322/326 Project 2023 - Group 19 </h2>
-    		<h3> Members: </h3>
-    		<ul>
-		      <li> Brian Cabingan </li>
-		      <li> Presenter: Ethan Fighel</li>
-		      <li> Zachary Kizell </li>
-		      <li> Team Leader: Daniel Madan </li>
-		      <li> Brett Morris </li>
-		      <li> Presenter: Daniel Solomon </li>
-	    	</ul>
-		<h3> A1. Conceptual Architecture </h3>
-		<ul>
-			<li><a href="A1/A1_Report.pdf" target="_blank"> Report </a></li>
-			<li><a href="A1/A1_Slides.pdf" target="_blank"> Slides </a></li>
-			<li><a href="https://www.youtube.com/watch?v=xLFytgNyK8Y" target="_blank"> Video </a></li>
-			<!-- <li><a href="https://docs.google.com/document/d/1yRCsWPRQDl5gSndRI10U9IIddtQ6S5RYjZjKZuIZIsU/edit?usp=sharing"> Preliminary Research </a></li> -->
-		</ul>
-		
-	</body>
+    .tab {
+        overflow: hidden;
+        background-color: #3c3f42;
+        /* Lighter gray to distinguish tabs from the body */
+        border-bottom: 3px solid #17a2b8;
+        /* Lighter gray border for bottom of the tab */
+
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        color: #d1d1d1;
+        /* A light gray text color for better visibility */
+        font-size: 16px;
+    }
+
+    .tab button:hover {
+        background-color: #4a4e52;
+        /* A shade lighter for hover to provide feedback */
+    }
+
+    .tab button.active {
+        background-color: #555b61;
+        /* A medium gray to highlight the active tab */
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        background-color: #3c3f42;
+        /* Matching the tab background for consistency */
+        border: none;
+    }
+
+    .tabcontent h3 {
+        margin-top: 0;
+        color: #17a2b8;
+        /* A bright blue for headers, giving a pop of color */
+    }
+
+    .tabcontent ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .tabcontent ul li {
+        background: #4a4e52;
+        /* A slightly lighter background for list items */
+        margin-bottom: 10px;
+        padding: 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        /* Slightly darker shadow for depth */
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        color: #d1d1d1;
+        /* Matching the text color for consistency */
+    }
+
+    .tabcontent ul li:hover {
+        transform: translateY(-5px);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .tabcontent ul li a {
+        color: #d1d1d1;
+        /* Matching the text color for consistency */
+        text-decoration: none;
+
+    }
+
+    .tabcontent ul li a:hover,
+    .contentButton:hover {
+        color: #17a2b8;
+        /* The same bright blue for interactive elements */
+        text-decoration: underline;
+    }
+
+    .contentButton {
+        position: relative;
+        display: inline-block;
+        background: none;
+        color: #d1d1d1;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+    .hiddenContent {
+        display: none;
+        margin-top: 20px;
+    }
+
+    .contentButton.activeIndicator::after {
+        content: '↓';
+        position: absolute;
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #17a2b8;
+        /* Bright blue color for the indicator */
+    }
+
+    header {
+        background-color: #1a4453;
+        /* Same as the tab background for consistency */
+        padding: 10px 0;
+        text-align: center;
+        color: #d1d1d1;
+        /* Light gray text for visibility */
+        border-bottom: 3px solid #555b61;
+        /* Border to match the tab border */
+
+    }
+
+    header .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        color: #17a2b8;
+        /* Bright blue to stand out */
+        margin: 0;
+        font-size: 24px;
+    }
+
+    header img {
+        height: 50px;
+        /* Adjust as needed */
+        vertical-align: middle;
+    }
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src="images/icon.png" alt="Icon" id="header-icon"> <!-- Add this line for the icon -->
+            <img src="images/logo copy.png" alt="Mystery Inc Logo">
+            <h1>CISC 322/326 Project 2023 - Group 19</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Members')" id="defaultOpen">Members</button>
+            <button class="tablinks" onclick="openTab(event, 'A1Page')">A1 Page</button>
+        </div>
+
+        <div id="Members" class="tabcontent">
+            <h3>Members:</h3>
+            <ul>
+                <li>Brian Cabingan</li>
+                <li>Presenter: Ethan Fighel</li>
+                <li>Zachary Kizell</li>
+                <li>Team Leader: Daniel Madan</li>
+                <li>Brett Morris</li>
+                <li>Presenter: Daniel Solomon</li>
+            </ul>
+        </div>
+
+        <div id="A1Page" class="tabcontent">
+            <h3>A1. Conceptual Architecture</h3>
+            <ul>
+                <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
+                <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
+                <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
+            </ul>
+
+            <!-- Hidden content divs -->
+            <div id="reportContent" class="hiddenContent">
+                <embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" />
+            </div>
+            <div id="slidesContent" class="hiddenContent">
+                <embed src="A1/A1_Slides.pdf" type="application/pdf" width="100%" height="600px" />
+            </div>
+            <div id="videoContent" class="hiddenContent">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Your existing footer content -->
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function showContent(contentId) {
+            var content = document.getElementById(contentId + 'Content');
+            var button = document.querySelector('button[onclick="showContent(\'' + contentId + '\')"]');
+
+            // Check if the content is currently displayed
+            if (content.style.display === 'block') {
+                // If it is, hide it and remove the active class
+                content.style.display = 'none';
+                button.classList.remove('activeIndicator');
+            } else {
+                // Hide all other content first and remove active class from all buttons
+                var contents = document.querySelectorAll('.hiddenContent');
+                var buttons = document.querySelectorAll('.contentButton');
+                for (var i = 0; i < contents.length; i++) {
+                    contents[i].style.display = 'none';
+                    buttons[i].classList.remove('activeIndicator');
+                }
+
+                // Then show the requested content and add the active class to the clicked button
+                content.style.display = 'block';
+                button.classList.add('activeIndicator');
+            }
+        }
+
+
+
+        document.getElementById("defaultOpen").click();
+
+
+    </script>
+
+</body>
+
 </html>
