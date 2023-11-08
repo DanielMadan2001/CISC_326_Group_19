@@ -105,10 +105,37 @@
         outline: inherit;
     }
 
-    .hiddenContent {
-        display: none;
-        margin-top: 20px;
-    }
+    /* This style ensures that the .content-wrapper uses flexbox to layout its children */
+.content-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* This will create a column for the buttons */
+.button-column {
+    flex: 1; /* You can adjust this value to change the relative width of the buttons column */
+    padding-right: 20px; /* Add some spacing between the columns */
+}
+
+/* This will create a column for the PDF content */
+.pdf-content-column {
+    flex: 3; /* This gives the content column more space than the buttons column */
+    /* Adjust the width, min-width or max-width according to your design requirements */
+}
+
+/* You'll also need to adjust your hiddenContent class to be visible when active */
+.hiddenContent {
+    display: none; /* Hidden by default */
+    width: 100%; /* Make sure it takes the full width of its container */
+    height: 600px; /* Adjust height as needed */
+}
+
+/* Add styles to show the content when a button is clicked */
+/* You'll need to add the logic to toggle the 'hiddenContent' class */
+.activeContent {
+    display: block;
+}
+
 
     .contentButton.activeIndicator::after {
         content: '↓';
@@ -443,24 +470,31 @@
 
         <div id="A1Page" class="tabcontent">
             <h3>A1. Conceptual Architecture</h3>
-            <ul>
-                <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
-                <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
-                <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
-            </ul>
-
-            <!-- Hidden content divs -->
-            <div id="reportContent" class="hiddenContent">
-                <embed src="A1/A1_Report.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
+            <div class="content-wrapper">
+                <!-- Buttons Column -->
+                <div class="button-column">
+                    <ul>
+                        <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
+                        <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
+                        <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
+                    </ul>
+                </div>
+        
+                <!-- PDF Content Column -->
+                <div class="pdf-content-column">
+                    <!-- Hidden content divs -->
+                    <div id="reportContent" class="hiddenContent">
+                        <embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" />
+                    </div>
+                    <div id="slidesContent" class="hiddenContent">
+                        <embed src="A1/A1_Slides.pdf" type="application/pdf" width="100%" height="600px" />
+                    </div>
+                    <div id="videoContent" class="hiddenContent">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
-            <div id="slidesContent" class="hiddenContent">
-                <embed src="A1/A1_Slides.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
-            </div>
-            <div id="videoContent" class="hiddenContent">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
     </div>
 
     <footer>
