@@ -1,210 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #19393a;
-        /* A lighter gray that still keeps the dark theme */
-        border-radius: 15px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #19393a;
+            border-radius: 15px;
+        }
 
-    .tab {
-        overflow: hidden;
-        background-color: #3c3f42;
-        /* Lighter gray to distinguish tabs from the body */
-        border-bottom: 3px solid #17a2b8;
-        /* Lighter gray border for bottom of the tab */
+        .tab {
+            overflow: hidden;
+            background-color: #3c3f42;
+            border-bottom: 3px solid #17a2b8;
+        }
 
-    }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            color: #d1d1d1;
+            font-size: 16px;
+        }
 
-    .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        color: #d1d1d1;
-        /* A light gray text color for better visibility */
-        font-size: 16px;
-    }
+        .tab button:hover {
+            background-color: #4a4e52;
+        }
 
-    .tab button:hover {
-        background-color: #4a4e52;
-        /* A shade lighter for hover to provide feedback */
-    }
+        .tab button.active {
+            background-color: #555b61;
+        }
 
-    .tab button.active {
-        background-color: #555b61;
-        /* A medium gray to highlight the active tab */
-    }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            background-color: #3c3f42;
+            border: none;
+        }
 
-    .tabcontent {
-        display: none;
-        padding: 20px;
-        background-color: #3c3f42;
-        /* Matching the tab background for consistency */
-        border: none;
-    }
+        .tabcontent h3 {
+            margin-top: 0;
+            color: #17a2b8;
+        }
 
-    .tabcontent h3 {
-        margin-top: 0;
-        color: #17a2b8;
-        /* A bright blue for headers, giving a pop of color */
-    }
+        .tabcontent ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    .tabcontent ul {
-        list-style-type: none;
-        padding: 0;
-    }
+        .tabcontent ul li {
+            background: #4a4e52;
+            margin-bottom: 10px;
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #d1d1d1;
+        }
 
-    .tabcontent ul li {
-        background: #4a4e52;
-        /* A slightly lighter background for list items */
-        margin-bottom: 10px;
-        padding: 20px;
-        font-size: 18px;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        /* Slightly darker shadow for depth */
-        transition: transform 0.3s, box-shadow 0.3s;
+        .tabcontent ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        }
 
-        color: #d1d1d1;
-        /* Matching the text color for consistency */
-    }
+        .tabcontent ul li a {
+            color: #d1d1d1;
+            text-decoration: none;
+        }
 
-    .tabcontent ul li:hover {
-        transform: translateY(-5px);
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    }
+        .tabcontent ul li a:hover,
+        .contentButton:hover {
+            color: #17a2b8;
+            text-decoration: underline;
+        }
 
-    .tabcontent ul li a {
-        color: #d1d1d1;
-        /* Matching the text color for consistency */
-        text-decoration: none;
+        .contentButton {
+            position: relative;
+            display: inline-block;
+            background: none;
+            color: #d1d1d1;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            overflow-y: auto;
+        }
 
-    }
+        .hiddenContent {
+            display: none;
+            margin-top: 20px;
+        }
 
-    .tabcontent ul li a:hover,
-    .contentButton:hover {
-        color: #17a2b8;
-        /* The same bright blue for interactive elements */
-        text-decoration: underline;
-    }
+        .contentButton.activeIndicator::after {
+            content: '↓';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #17a2b8;
+        }
 
-    .contentButton {
-        position: relative;
-        display: inline-block;
-        background: none;
-        color: #d1d1d1;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-    }
+        header {
+            background-color: #1a4453;
+            padding: 10px 0;
+            text-align: center;
+            color: #d1d1d1;
+            border-bottom: 3px solid #555b61;
+        }
 
-    .hiddenContent {
-        display: none;
-        margin-top: 20px;
-    }
+        header .container {
+            width: 80%;
+            margin: 0 auto;
+        }
 
-    .contentButton.activeIndicator::after {
-        content: '↓';
-        position: absolute;
-        right: -50px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #17a2b8;
-        /* Bright blue color for the indicator */
-    }
+        header h1 {
+            color: #17a2b8;
+            margin: 0;
+            font-size: 24px;
+        }
 
-    header {
-        background-color: #1a4453;
-        /* Same as the tab background for consistency */
-        padding: 10px 0;
-        text-align: center;
-        color: #d1d1d1;
-        /* Light gray text for visibility */
-        border-bottom: 3px solid #555b61;
-        /* Border to match the tab border */
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
 
-    }
+        .member-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
 
-    header .container {
-        width: 80%;
-        margin: 0 auto;
-    }
+        .member-gallery li {
+            list-style: none;
+        }
 
-    header h1 {
-        color: #17a2b8;
-        /* Bright blue to stand out */
-        margin: 0;
-        font-size: 24px;
-    }
+        .member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 20px;
+        }
 
-    header img {
-        height: 50px;
-        /* Adjust as needed */
-        vertical-align: middle;
-    }
+        .member-image img {
+            max-height: 400px;
+            max-width: 400px;
+            border-radius: 5%;
+        }
 
-    .member-gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        grid-gap: 20px; /* Gap between items */
-    }
+        .member-big-image img {
+            max-height: 50%;
+            max-width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .member-gallery li {
-        list-style: none;
-    }
+        .member-info {
+            margin-top: 10px;
+        }
 
-    .member {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px; /* Add margin to separate member boxes */
-    }
+        .tablinks.active {
+            background-color: #555b61;
+            color: #17a2b8;
+            border-bottom: 3px solid #17a2b8;
+        }
 
-    .member-content {
-        display: flex;
-        align-items: center;
-        background-color: #4a4e52;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        flex: 1; /* Allow it to grow to fill available space */
-    }
+        .tablinks:hover {
+            background-color: #4a4e52;
+            color: #17a2b8;
+            border-bottom: 3px solid #17a2b8;
+        }
 
-    .member-info {
-        flex: 1; /* Allow it to grow to fill available space */
-    }
+        #Home {
+            display: block;
+        }
 
-    .member-image {
-        background-color: #4a4e52;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        text-align: center;
-        flex: 0 0 50px; /* Fixed width for the image column */
-        margin-left: 10px; /* Add margin to separate text from image */
-    }
+        .logo {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
 
-    .member-image img {
-        width: 100px;
-        height: 100px;
-        border-radius: 1%;
-    }
+        .info-box {
+            background: #3c3f42;
+            border-left: 4px solid #17a2b8;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            color: #d1d1d1;
+        }
 
-    .member-info h4 {
-        margin: 0;
-    }
-</style>
+        .info-box h3 {
+            margin-top: 0;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .info-box:hover {
+            transform: scale(1.01);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #1a4453;
+            padding: 10px 0;
+            text-align: center;
+            color: #d1d1d1;
+            border-top: 3px solid #555b61;
+        }
+
+        footer p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #defaultOpen {
+            background-color: #555b61;
+        }
+
+        .home-style h3 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 1em;
+            color: #17a2b8;
+        }
+
+        .home-style .member-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .home-style .member {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .home-style .member:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-style .member-image img {
+            width: 100%;
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .home-style .member-info {
+            padding: 1em;
+            text-align: center;
+        }
+
+        .home-style .member-info h4 {
+            margin-top: 0.5em;
+            color: #333;
+        }
+
+        .home-style .member-info p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0.25em 0;
+        }
+    </style>
 </head>
-
 <body>
     <header>
         <div class="container">
-            <img src="images/icon.png" alt="Icon" id="header-icon"> <!-- Add this line for the icon -->
+            <img src="images/icon.png" alt="Icon" id="header-icon">
             <img src="images/logo copy.png" alt="Mystery Inc Logo">
             <h1>CISC 322/326 Project 2023 - Group 19</h1>
         </div>
@@ -212,72 +292,105 @@
 
     <div class="container">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Members')" id="defaultOpen">Members</button>
+            <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+            <button class="tablinks" onclick="openTab(event, 'Members')">Team</button>
             <button class="tablinks" onclick="openTab(event, 'A1Page')">A1 Page</button>
         </div>
 
-        <div id="Members" class="tabcontent">
+        <div id="Home" class="tabcontent">
+            <div class="container">
+                <div class="row">
+                    <div class="column-left">
+                        <div class="member-big-image img">
+                            <img src="images/KodiBig.png" alt="Kodi Logo" class="logo" style="width: 100%;">
+                        </div>
+                    </div>
+                    <div class="column-right">
+                        <div class="info-box">
+                            <h3>Welcome to Kodi</h3>
+                            <p>
+                                Kodi is an open-source media player that turns your device into an all-in-one entertainment center. 
+                                It lets you organize and enjoy movies, TV shows, music, and more from various sources. 
+                                Kodi offers a customizable interface and supports add-ons, making it a versatile choice for managing and streaming media content.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div id="Members" class="tabcontent home-style">
             <h3>Meet The Team!</h3>
             <ul class="member-gallery">
                 <li class="member">
-                    <div class="member-info">
-                        <h4>Brian Cabingan</h4>
-                        <p>Major: Computer Science</p>
-                        <p>Role: Developer</p>
-                    </div>
                     <div class="member-image">
                         <img src="images/bird.png" alt="Brian Cabingan">
                     </div>
+                    <div class="member-info">
+                        <h4>Brian Cabingan</h4>
+                        <p>Major: Computing</p>
+                        <p>Role: Developer</p>
+                    </div>
                 </li>
                 <li class="member">
-                    <div class="member-info">
-                        <h4>Ethan Fighel (Presenter)</h4>
-                        <p>Major: Information Technology</p>
-                        <p>Role: Presenter</p>
-                    </div>
                     <div class="member-image">
                         <img src="images/bird.png" alt="Ethan Fighel">
                     </div>
+                    <div class="member-info">
+                        <h4>Ethan Fighel (Presenter)</h4>
+                        <p>Major: Computing</p>
+                        <p>Role: Presenter</p>
+                    </div>
+                    
                 </li>
                 <li class="member">
-                    <div class="member-info">
-                        <h4>Zachary Kizell</h4>
-                        <p>Major: Computer Engineering</p>
-                        <p>Role: Designer</p>
-                    </div>
                     <div class="member-image">
                         <img src="images/bird.png" alt="Zachary Kizell">
                     </div>
-                </li>
-                <li class="member">
                     <div class="member-info">
-                        <h4>Daniel Madan (Team Leader)</h4>
-                        <p>Major: Computer Science</p>
-                        <p>Role: Team Leader</p>
-                    </div>
-                    <div class="member-image">
-                        <img src="images/bird.png" alt="Daniel Madan">
-                    </div>
-                </li>
-                <li class="member">
-                    <div class="member-info">
-                        <h4>Brett Morris</h4>
-                        <p>Major: Computer Science</p>
+
+                        <h4>Zachary Kizell</h4>
+                        <p>Major: Computing</p>
                         <p>Role: Developer</p>
                     </div>
+                    
+                </li>
+                <li class="member">
+                    <div class="member-image">
+                        
+                        <img src="images/bird.png" alt="Daniel Madan">
+                    </div>
+                    <div class="member-info">
+
+                        <h4>Daniel Madan</h4>
+                        <p>Major: Computing</p>
+                        <p>Role: Team Leader</p>
+                    </div>
+                    
+                </li>
+                <li class="member">
                     <div class="member-image">
                         <img src="images/bird.png" alt="Brett Morris">
                     </div>
+                    <div class="member-info">
+                        <h4>Brett Morris</h4>
+                        <p>Major: Computing</p>
+                        <p>Role: Developer</p>
+                    </div>
+                    
                 </li>
                 <li class="member">
-                    <div class="member-info">
-                        <h4>Daniel Solomon (Presenter)</h4>
-                        <p>Major: Information Technology</p>
-                        <p>Role: Presenter</p>
-                    </div>
                     <div class="member-image">
                         <img src="images/prof1.png" alt="Daniel Solomon">
                     </div>
+                    <div class="member-info">
+                        <h4>Daniel Solomon</h4>
+                        <p>Major: Computing</p>
+                        <p>Role: Presenter</p>
+                    </div>
+                    
                 </li>
             </ul>
         </div>
@@ -285,12 +398,12 @@
 
         <div id="A1Page" class="tabcontent">
             <h3>A1. Conceptual Architecture</h3>
-            <ul>
+            <ul class="content-list">
                 <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
                 <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
                 <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
             </ul>
-
+        
             <!-- Hidden content divs -->
             <div id="reportContent" class="hiddenContent">
                 <embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" />
@@ -300,10 +413,10 @@
             </div>
             <div id="videoContent" class="hiddenContent">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
-                    allowfullscreen></iframe>
+                        allowfullscreen></iframe>
             </div>
         </div>
-    </div>
+        
 
     <footer>
         <!-- Your existing footer content -->
