@@ -1,218 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #19393a;
-            border-radius: 15px;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #19393a;
+        /* A lighter gray that still keeps the dark theme */
+        border-radius: 15px;
+    }
 
-        .tab {
-            overflow: hidden;
-            background-color: #3c3f42;
-            border-bottom: 3px solid #17a2b8;
-        }
+    .tab {
+        overflow: hidden;
+        background-color: #3c3f42;
+        /* Lighter gray to distinguish tabs from the body */
+        border-bottom: 3px solid #17a2b8;
+        /* Lighter gray border for bottom of the tab */
 
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            color: #d1d1d1;
-            font-size: 16px;
-        }
+    }
 
-        .tab button:hover {
-            background-color: #4a4e52;
-        }
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        color: #d1d1d1;
+        /* A light gray text color for better visibility */
+        font-size: 16px;
+    }
 
-        .tab button.active {
-            background-color: #555b61;
-        }
+    .tab button:hover {
+        background-color: #4a4e52;
+        /* A shade lighter for hover to provide feedback */
+    }
 
-        .tabcontent {
-            display: none;
-            padding: 20px;
-            background-color: #3c3f42;
-            border: none;
-        }
+    .tab button.active {
+        background-color: #555b61;
+        /* A medium gray to highlight the active tab */
+    }
 
-        .tabcontent h3 {
-            margin-top: 0;
-            color: #17a2b8;
-        }
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        background-color: #3c3f42;
+        /* Matching the tab background for consistency */
+        border: none;
+    }
 
-        .tabcontent ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .tabcontent h3 {
+        margin-top: 0;
+        color: #17a2b8;
+        /* A bright blue for headers, giving a pop of color */
+    }
 
-        .tabcontent ul li {
-            background: #4a4e52;
-            margin-bottom: 10px;
-            padding: 20px;
-            font-size: 18px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            color: #d1d1d1;
-        }
+    .tabcontent ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        .tabcontent ul li:hover {
-            transform: translateY(-5px);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        }
+    .tabcontent ul li {
+        background: #4a4e52;
+        /* A slightly lighter background for list items */
+        margin-bottom: 10px;
+        padding: 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        /* Slightly darker shadow for depth */
+        transition: transform 0.3s, box-shadow 0.3s;
 
-        .tabcontent ul li a {
-            color: #d1d1d1;
-            text-decoration: none;
-        }
+        color: #d1d1d1;
+        /* Matching the text color for consistency */
+    }
 
-        .tabcontent ul li a:hover,
-        .contentButton:hover {
-            color: #17a2b8;
-            text-decoration: underline;
-        }
+    .tabcontent ul li:hover {
+        transform: translateY(-5px);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    }
 
-        .contentButton {
-            position: relative;
-            display: inline-block;
-            background: none;
-            color: #d1d1d1;
-            border: none;
-            padding: 0;
-            font: inherit;
-            cursor: pointer;
-            outline: inherit;
-            overflow-y: auto;
-        }
+    .tabcontent ul li a {
+        color: #d1d1d1;
+        /* Matching the text color for consistency */
+        text-decoration: none;
 
-        .hiddenContent {
-            display: none;
-            margin-top: 20px;
-        }
+    }
 
-        .contentButton.activeIndicator::after {
-            content: '↓';
-            position: absolute;
-            right: -50px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #17a2b8;
-        }
+    .tabcontent ul li a:hover,
+    .contentButton:hover {
+        color: #17a2b8;
+        /* The same bright blue for interactive elements */
+        text-decoration: underline;
+    }
 
-        header {
-            background-color: #1a4453;
-            padding: 10px 0;
-            text-align: center;
-            color: #d1d1d1;
-            border-bottom: 3px solid #555b61;
-        }
+    .contentButton {
+        position: relative;
+        display: inline-block;
+        background: none;
+        color: #d1d1d1;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
 
-        header .container {
-            width: 80%;
-            margin: 0 auto;
-        }
+    .hiddenContent {
+        display: none;
+        margin-top: 20px;
+    }
 
-        header h1 {
-            color: #17a2b8;
-            margin: 0;
-            font-size: 24px;
-        }
+    .contentButton.activeIndicator::after {
+        content: '↓';
+        position: absolute;
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #17a2b8;
+        /* Bright blue color for the indicator */
+    }
 
-        header img {
-            height: 50px;
-            vertical-align: middle;
-        }
+    header {
+        background-color: #1a4453;
+        /* Same as the tab background for consistency */
+        padding: 10px 0;
+        text-align: center;
+        color: #d1d1d1;
+        /* Light gray text for visibility */
+        border-bottom: 3px solid #555b61;
+        /* Border to match the tab border */
 
-        .member-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-        }
+    }
 
-        .member-gallery li {
-            list-style: none;
-        }
+    header .container {
+        width: 80%;
+        margin: 0 auto;
+    }
 
-        .member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin: 20px;
-        }
+    header h1 {
+        color: #17a2b8;
+        /* Bright blue to stand out */
+        margin: 0;
+        font-size: 24px;
+    }
 
-        .member-image img {
-            max-height: 400px;
-            max-width: 400px;
-            border-radius: 5%;
-        }
+    header img {
+        height: 50px;
+        /* Adjust as needed */
+        vertical-align: middle;
+    }
 
-        .member-big-image img {
-            max-height: 50%;
-            max-width: 50%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .member-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-gap: 20px; /* Gap between items */
+    }
 
-        .member-info {
-            margin-top: 10px;
-        }
+    .member-gallery li {
+        list-style: none;
+    }
 
-        .tablinks.active {
-            background-color: #555b61;
-            color: #17a2b8;
-            border-bottom: 3px solid #17a2b8;
-        }
+    .member {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        text-align: center;
+        margin: 20px;
+    }
 
-        .tablinks:hover {
-            background-color: #4a4e52;
-            color: #17a2b8;
-            border-bottom: 3px solid #17a2b8;
-        }
+    /* Style for member images */
+    .member-image img {
+        max-height: 400px; /* Adjust image width as needed */
+        max-width: 400px; /* Adjust image height as needed */
+        border-radius: 5%; /* Make the image round */
+    }
 
-        #Home {
-            display: block;
-        }
+    .member-big-image img {
+    /* Ensure the image is responsive and maintains aspect ratio */
+    max-height: 50%; /* 50% of the viewport height */
+    max-width: 50%; /* Full width but maintains aspect ratio */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: block; /* Remove any default inline spacing */
+    margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
+}
 
-        .logo {
-            max-width: 200px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
 
-        .info-box {
-            background: #3c3f42;
-            border-left: 4px solid #17a2b8;
+
+    /* Style for member info */
+    .member-info {
+        margin-top: 10px;
+    }
+    .tablinks.active {
+        background-color: #555b61; /* Active tab background color */
+        color: #17a2b8; /* Active tab text color */
+        border-bottom: 3px solid #17a2b8; /* Active tab border color */
+    }
+
+    /* Style for tab buttons on hover */
+    .tablinks:hover {
+        background-color: #4a4e52; /* Hover background color */
+        color: #17a2b8; /* Hover text color */
+        border-bottom: 3px solid #17a2b8; /* Hover border color */
+    }
+
+    #Home {
+        display: block;
+    }
+
+    /* Style for the logo */
+    .logo {
+        max-width: 200px; /* Adjust the maximum width as needed */
+        height: auto;
+        display: block;
+        margin: 0 auto; /* Center the logo horizontally */
+        margin-top: 20px;
+    }
+
+    /* Style for the information text box */
+    .info-box {
+            background: #3c3f42; /* Adjusted to match the tabs */
+            border-left: 4px solid #17a2b8; /* Adjusted to match the highlight color */
             margin-top: 20px;
             padding: 15px;
             border-radius: 4px;
-            color: #d1d1d1;
+            color: #d1d1d1; /* Text color adjusted to match other elements */
         }
 
         .info-box h3 {
             margin-top: 0;
         }
 
+        /* Adjusted the paragraph color in the information box to match other text */
         .info-box p {
             line-height: 1.6;
             color: #d1d1d1;
         }
 
-        .info-box:hover {
-            transform: scale(1.01);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
 
+        .info-box:hover {
+            transform: scale(1.01); /* Slightly enlarge the image on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for a 'lifted' effect */
+        }
+        /* Footer style to match the header */
         footer {
             background-color: #1a4453;
             padding: 10px 0;
@@ -226,65 +257,68 @@
             padding: 0;
         }
 
+        /* Ensure the default tab is opened on load */
         #defaultOpen {
             background-color: #555b61;
         }
-
         .home-style h3 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 1em;
-            color: #17a2b8;
-        }
+    text-align: center;
+    font-size: 2em; /* Adjust as necessary to match home page styles */
+    margin-bottom: 1em;
+    color: #17a2b8; /* Hover text color */
+; /* Replace with the home page's heading color */
+}
 
-        .home-style .member-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1em;
-            list-style-type: none;
-            padding: 0;
-        }
+.home-style .member-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* creates a responsive grid layout */
+    gap: 1em; /* spacing between grid items */
+    list-style-type: none;
+    padding: 0;
+}
 
-        .home-style .member {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
+.home-style .member {
+    background: #fff; /* Replace with the home page's card background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
 
-        .home-style .member:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
+.home-style .member:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-        .home-style .member-image img {
-            width: 100%;
-            display: block;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
+.home-style .member-image img {
+    width: 100%;
+    display: block; /* Removes bottom space/line */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
 
-        .home-style .member-info {
-            padding: 1em;
-            text-align: center;
-        }
+.home-style .member-info {
+    padding: 1em;
+    text-align: center;
+}
 
-        .home-style .member-info h4 {
-            margin-top: 0.5em;
-            color: #333;
-        }
+.home-style .member-info h4 {
+    margin-top: 0.5em;
+    color: #333; /* Replace with the home page's text color */
+}
 
-        .home-style .member-info p {
-            font-size: 0.9em;
-            color: #666;
-            margin: 0.25em 0;
-        }
-    </style>
+.home-style .member-info p {
+    font-size: 0.9em;
+    color: #666; /* Replace with a subtler color as per the home page's design */
+    margin: 0.25em 0;
+}
+
+</style>
 </head>
+
 <body>
     <header>
         <div class="container">
-            <img src="images/icon.png" alt="Icon" id="header-icon">
+            <img src="images/icon.png" alt="Icon" id="header-icon"> <!-- Add this line for the icon -->
             <img src="images/logo copy.png" alt="Mystery Inc Logo">
             <h1>CISC 322/326 Project 2023 - Group 19</h1>
         </div>
@@ -318,6 +352,7 @@
                 </div>
             </div>
         </div>
+        
         
         
         
@@ -398,12 +433,12 @@
 
         <div id="A1Page" class="tabcontent">
             <h3>A1. Conceptual Architecture</h3>
-            <ul class="content-list">
+            <ul>
                 <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
                 <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
                 <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
             </ul>
-        
+
             <!-- Hidden content divs -->
             <div id="reportContent" class="hiddenContent">
                 <embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" />
@@ -413,10 +448,10 @@
             </div>
             <div id="videoContent" class="hiddenContent">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
-                        allowfullscreen></iframe>
+                    allowfullscreen></iframe>
             </div>
         </div>
-        
+    </div>
 
     <footer>
         <!-- Your existing footer content -->
