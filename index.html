@@ -106,35 +106,44 @@
     }
 
     /* This style ensures that the .content-wrapper uses flexbox to layout its children */
-.content-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-}
+    .content-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+    }
 
-/* This will create a column for the buttons */
-.button-column {
-    flex: 1; /* You can adjust this value to change the relative width of the buttons column */
-    padding-right: 20px; /* Add some spacing between the columns */
-}
+    /* This will create a column for the buttons */
+    .button-column {
+        flex: 1;
+        /* You can adjust this value to change the relative width of the buttons column */
+        padding-right: 20px;
+        /* Add some spacing between the columns */
+    }
 
-/* This will create a column for the PDF content */
-.pdf-content-column {
-    flex: 3; /* This gives the content column more space than the buttons column */
-    /* Adjust the width, min-width or max-width according to your design requirements */
-}
+    /* This will create a column for the PDF content */
+    .pdf-content-column {
+        flex: 3;
+        /* This gives the content column more space than the buttons column */
+        /* Adjust the width, min-width or max-width according to your design requirements */
 
-/* You'll also need to adjust your hiddenContent class to be visible when active */
-.hiddenContent {
-    display: none; /* Hidden by default */
-    width: 100%; /* Make sure it takes the full width of its container */
-    height: 600px; /* Adjust height as needed */
-}
+    }
 
-/* Add styles to show the content when a button is clicked */
-/* You'll need to add the logic to toggle the 'hiddenContent' class */
-.activeContent {
-    display: block;
-}
+    /* You'll also need to adjust your hiddenContent class to be visible when active */
+    .hiddenContent {
+        display: none;
+        /* Hidden by default */
+        width: 100%;
+        /* Make sure it takes the full width of its container */
+        height: 600px;
+        /* Adjust height as needed */
+        border-left: 4px solid #17a2b8;
+        /* Adjusted to match the highlight color */
+    }
+
+    /* Add styles to show the content when a button is clicked */
+    /* You'll need to add the logic to toggle the 'hiddenContent' class */
+    .activeContent {
+        display: block;
+    }
 
 
     .contentButton.activeIndicator::after {
@@ -179,8 +188,10 @@
 
     .member-gallery {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        grid-gap: 20px; /* Gap between items */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        grid-gap: 20px;
+        /* Gap between items */
     }
 
     .member-gallery li {
@@ -190,28 +201,39 @@
     .member {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center horizontally */
+        align-items: center;
+        /* Center horizontally */
         text-align: center;
         margin: 20px;
     }
 
     /* Style for member images */
     .member-image img {
-        max-height: 400px; /* Adjust image width as needed */
-        max-width: 400px; /* Adjust image height as needed */
-        border-radius: 5%; /* Make the image round */
+        max-height: 400px;
+        /* Adjust image width as needed */
+        max-width: 400px;
+        /* Adjust image height as needed */
+        border-radius: 5%;
+        /* Make the image round */
     }
 
     .member-big-image img {
-    /* Ensure the image is responsive and maintains aspect ratio */
-    max-height: 50%; /* 50% of the viewport height */
-    max-width: 50%; /* Full width but maintains aspect ratio */
-    border-radius: 10px; /* Rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    display: block; /* Remove any default inline spacing */
-    margin-left: auto; /* Center the image horizontally */
-    margin-right: auto; /* Center the image horizontally */
-}
+        /* Ensure the image is responsive and maintains aspect ratio */
+        max-height: 50%;
+        /* 50% of the viewport height */
+        max-width: 50%;
+        /* Full width but maintains aspect ratio */
+        border-radius: 10px;
+        /* Rounded corners for a softer look */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow for depth */
+        display: block;
+        /* Remove any default inline spacing */
+        margin-left: auto;
+        /* Center the image horizontally */
+        margin-right: auto;
+        /* Center the image horizontally */
+    }
 
 
 
@@ -219,17 +241,24 @@
     .member-info {
         margin-top: 10px;
     }
+
     .tablinks.active {
-        background-color: #555b61; /* Active tab background color */
-        color: #17a2b8; /* Active tab text color */
-        border-bottom: 3px solid #17a2b8; /* Active tab border color */
+        background-color: #555b61;
+        /* Active tab background color */
+        color: #17a2b8;
+        /* Active tab text color */
+        border-bottom: 3px solid #17a2b8;
+        /* Active tab border color */
     }
 
     /* Style for tab buttons on hover */
     .tablinks:hover {
-        background-color: #4a4e52; /* Hover background color */
-        color: #17a2b8; /* Hover text color */
-        border-bottom: 3px solid #17a2b8; /* Hover border color */
+        background-color: #4a4e52;
+        /* Hover background color */
+        color: #17a2b8;
+        /* Hover text color */
+        border-bottom: 3px solid #17a2b8;
+        /* Hover border color */
     }
 
     #Home {
@@ -238,117 +267,141 @@
 
     /* Style for the logo */
     .logo {
-        max-width: 200px; /* Adjust the maximum width as needed */
+        max-width: 200px;
+        /* Adjust the maximum width as needed */
         height: auto;
         display: block;
-        margin: 0 auto; /* Center the logo horizontally */
+        margin: 0 auto;
+        /* Center the logo horizontally */
         margin-top: 20px;
     }
 
     /* Style for the information text box */
     .info-box {
-            background: #3c3f42; /* Adjusted to match the tabs */
-            border-left: 4px solid #17a2b8; /* Adjusted to match the highlight color */
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
-            color: #d1d1d1; /* Text color adjusted to match other elements */
-        }
+        background: #3c3f42;
+        /* Adjusted to match the tabs */
+        border-left: 4px solid #17a2b8;
+        /* Adjusted to match the highlight color */
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        color: #d1d1d1;
+        /* Text color adjusted to match other elements */
+    }
 
-        .info-box h3 {
-            margin-top: 0;
-        }
+    .info-box h3 {
+        margin-top: 0;
+    }
 
-        /* Adjusted the paragraph color in the information box to match other text */
-        .info-box p {
-            line-height: 1.6;
-            color: #d1d1d1;
-        }
+    /* Adjusted the paragraph color in the information box to match other text */
+    .info-box p {
+        line-height: 1.6;
+        color: #d1d1d1;
+    }
 
 
-        .info-box:hover {
-            transform: scale(1.01); /* Slightly enlarge the image on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for a 'lifted' effect */
-        }
-        /* Footer style to match the header */
-        footer {
-            background-color: #1a4453;
-            padding: 10px 0;
-            text-align: center;
-            color: #d1d1d1;
-            border-top: 3px solid #555b61;
-        }
+    .info-box:hover {
+        transform: scale(1.01);
+        /* Slightly enlarge the image on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        /* Enhanced shadow on hover for a 'lifted' effect */
+    }
 
-        footer p {
-            margin: 0;
-            padding: 0;
-        }
+    /* Footer style to match the header */
+    footer {
+        background-color: #1a4453;
+        padding: 10px 0;
+        text-align: center;
+        color: #d1d1d1;
+        border-top: 3px solid #555b61;
+    }
 
-        /* Ensure the default tab is opened on load */
-        #defaultOpen {
-            background-color: #555b61;
-        }
-        .home-style h3 {
-    text-align: center;
-    font-size: 2em; /* Adjust as necessary to match home page styles */
-    margin-bottom: 1em;
-    color: #17a2b8; /* Hover text color */
-; /* Replace with the home page's heading color */
-}
+    footer p {
+        margin: 0;
+        padding: 0;
+    }
 
-.home-style .member-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* creates a responsive grid layout */
-    gap: 1em; /* spacing between grid items */
-    list-style-type: none;
-    padding: 0;
-}
+    /* Ensure the default tab is opened on load */
+    #defaultOpen {
+        background-color: #555b61;
+    }
 
-.home-style .member {
-    background: #fff; /* Replace with the home page's card background color */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-}
+    .home-style h3 {
+        text-align: center;
+        font-size: 2em;
+        /* Adjust as necessary to match home page styles */
+        margin-bottom: 1em;
+        color: #17a2b8;
+        /* Hover text color */
+        ;
+        /* Replace with the home page's heading color */
+    }
 
-.home-style .member:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .home-style .member-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* creates a responsive grid layout */
+        gap: 1em;
+        /* spacing between grid items */
+        list-style-type: none;
+        padding: 0;
+    }
 
-.home-style .member-image img {
-    width: 100%;
-    display: block; /* Removes bottom space/line */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+    .home-style .member {
+        background: #fff;
+        /* Replace with the home page's card background color */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+    }
 
-.home-style .member-info {
-    padding: 1em;
-    text-align: center;
-}
+    .home-style .member:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-.home-style .member-info h4 {
-    margin-top: 0.5em;
-    color: #333; /* Replace with the home page's text color */
-}
+    .home-style .member-image img {
+        width: 100%;
+        display: block;
+        /* Removes bottom space/line */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
 
-.home-style .member-info p {
-    font-size: 0.9em;
-    color: #666; /* Replace with a subtler color as per the home page's design */
-    margin: 0.25em 0;
-}
+    .home-style .member-info {
+        padding: 1em;
+        text-align: center;
+    }
 
-.Mystery {
-    width: 40%;
-    height: auto;
-}
+    .home-style .member-info h4 {
+        margin-top: 0.5em;
+        color: #333;
+        /* Replace with the home page's text color */
+    }
 
-.Logo {
-    width:8%;
-    height: auto;
-}
+    .home-style .member-info p {
+        font-size: 0.9em;
+        color: #666;
+        /* Replace with a subtler color as per the home page's design */
+        margin: 0.25em 0;
+    }
 
+    .Mystery {
+        width: 40%;
+        height: auto;
+    }
+
+    .Logo {
+        width: 8%;
+        height: auto;
+    }
+
+    .activeIndicator {
+        border-left: 4px solid #17a2b8;
+        /* Blue left border for the active row */
+        background-color: #f1f1f1;
+        /* Optional: change background color for active row */
+    }
 </style>
 </head>
 
@@ -380,19 +433,21 @@
                         <div class="info-box">
                             <h3>Welcome to Kodi</h3>
                             <p>
-                                Kodi is an open-source media player that turns your device into an all-in-one entertainment center. 
-                                It lets you organize and enjoy movies, TV shows, music, and more from various sources. 
-                                Kodi offers a customizable interface and supports add-ons, making it a versatile choice for managing and streaming media content.
+                                Kodi is an open-source media player that turns your device into an all-in-one
+                                entertainment center.
+                                It lets you organize and enjoy movies, TV shows, music, and more from various sources.
+                                Kodi offers a customizable interface and supports add-ons, making it a versatile choice
+                                for managing and streaming media content.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
-        
-        
+
+
+
+
         <div id="Members" class="tabcontent home-style">
             <h3>Meet The Team!</h3>
             <ul class="member-gallery">
@@ -415,7 +470,7 @@
                         <p>Major: Computing</p>
                         <p>Role: Presenter</p>
                     </div>
-                    
+
                 </li>
                 <li class="member">
                     <div class="member-image">
@@ -427,11 +482,11 @@
                         <p>Major: Computing</p>
                         <p>Role: Developer</p>
                     </div>
-                    
+
                 </li>
                 <li class="member">
                     <div class="member-image">
-                        
+
                         <img src="images/cash.jpg" alt="Daniel Madan">
                     </div>
                     <div class="member-info">
@@ -440,7 +495,7 @@
                         <p>Major: Computing</p>
                         <p>Role: Team Leader</p>
                     </div>
-                    
+
                 </li>
                 <li class="member">
                     <div class="member-image">
@@ -451,7 +506,7 @@
                         <p>Major: Computing</p>
                         <p>Role: Developer</p>
                     </div>
-                    
+
                 </li>
                 <li class="member">
                     <div class="member-image">
@@ -462,7 +517,7 @@
                         <p>Major: Computing</p>
                         <p>Role: Presenter</p>
                     </div>
-                    
+
                 </li>
             </ul>
         </div>
@@ -479,7 +534,7 @@
                         <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
                     </ul>
                 </div>
-        
+
                 <!-- PDF Content Column -->
                 <div class="pdf-content-column">
                     <!-- Hidden content divs -->
@@ -495,57 +550,60 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 
-    <footer>
-        <!-- Your existing footer content -->
-    </footer>
+        <footer>
+            <!-- Your existing footer content -->
+        </footer>
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+        <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
 
-        function showContent(contentId) {
-            var content = document.getElementById(contentId + 'Content');
-            var button = document.querySelector('button[onclick="showContent(\'' + contentId + '\')"]');
+            function showContent(contentId) {
+                var content = document.getElementById(contentId + 'Content');
+                var button = document.querySelector('button[onclick="showContent(\'' + contentId + '\')"]');
+                var listItem = button.parentElement; // Get the parent <li> element
 
-            // Check if the content is currently displayed
-            if (content.style.display === 'block') {
-                // If it is, hide it and remove the active class
-                content.style.display = 'none';
-                button.classList.remove('activeIndicator');
-            } else {
-                // Hide all other content first and remove active class from all buttons
-                var contents = document.querySelectorAll('.hiddenContent');
-                var buttons = document.querySelectorAll('.contentButton');
-                for (var i = 0; i < contents.length; i++) {
-                    contents[i].style.display = 'none';
-                    buttons[i].classList.remove('activeIndicator');
+                // Check if the content is currently displayed
+                if (content.style.display === 'block') {
+                    // If it is, hide it and remove the active class from the <li> parent
+                    content.style.display = 'none';
+                    listItem.classList.remove('activeIndicator');
+                } else {
+                    // Hide all other content first and remove active class from all <li> elements
+                    var contents = document.querySelectorAll('.hiddenContent');
+                    var listItems = document.querySelectorAll('.button-column ul li'); // Select the <li> elements
+                    for (var i = 0; i < contents.length; i++) {
+                        contents[i].style.display = 'none';
+                        listItems[i].classList.remove('activeIndicator');
+                    }
+
+                    // Then show the requested content and add the active class to the parent <li> of the clicked button
+                    content.style.display = 'block';
+                    listItem.classList.add('activeIndicator');
+
                 }
 
-                // Then show the requested content and add the active class to the clicked button
-                content.style.display = 'block';
-                button.classList.add('activeIndicator');
             }
-        }
 
 
 
-        document.getElementById("defaultOpen").click();
+            document.getElementById("defaultOpen").click();
 
 
-    </script>
+        </script>
 
 </body>
 
