@@ -419,6 +419,8 @@
             <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
             <button class="tablinks" onclick="openTab(event, 'Members')">Team</button>
             <button class="tablinks" onclick="openTab(event, 'A1Page')">A1 Page</button>
+            <button class="tablinks" onclick="openTab(event, 'A2Page')">A2 Page</button>
+
         </div>
 
         <div id="Home" class="tabcontent">
@@ -552,6 +554,35 @@
                     <div id="videoContent" class="hiddenContent">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
                             allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="A2Page" class="tabcontent">
+            <h3>A2. Subsystem Architecture</h3>
+            <div class="content-wrapper">
+                <!-- Buttons Column -->
+                <div class="button-column">
+                    <ul>
+                        <li><button class="contentButton" onclick="showContent('report')">Report</button></li>
+                        <li><button class="contentButton" onclick="showContent('slides')">Slides</button></li>
+                        <li><button class="contentButton" onclick="showContent('video')">Video</button></li>
+                    </ul>
+                </div>
+
+                <!-- PDF Content Column -->
+                <div class="pdf-content-column">
+                    <!-- Hidden content divs -->
+                    <div id="reportContent" class="hiddenContent">
+                        <!--<embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" /> -->
+                    </div>
+                    <div id="slidesContent" class="hiddenContent">
+                       <!-- <embed src="A1/A1_Slides.pdf" type="application/pdf" width="100%" height="600px" /> -->
+                    </div>
+                    <div id="videoContent" class="hiddenContent">
+                       <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
+                            allowfullscreen></iframe> -->
                     </div>
                 </div>
             </div>
