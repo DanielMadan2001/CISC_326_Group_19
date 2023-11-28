@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Schedule</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #e8f5e9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .schedule-container {
+    background: url('green-watercolor-background.jpg'); /* You will need to replace this with the actual path to your watercolor background image */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+  }
+  .schedule-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .day {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .day:last-child {
+    margin-bottom: 0;
+  }
+  .day-name {
+    font-weight: bold;
+  }
+  .day-date {
+    color: #66bb6a;
+  }
+</style>
+</head>
+<body>
+  <div class="schedule-container">
+    <div class="schedule-header">
+      <h1>Weekly Schedule</h1>
+      <p>Week of <span id="week-of">DATE</span>, <span id="month">MONTH</span></p>
+    </div>
+    <div class="day">
+      <span class="day-name">Monday</span>
+      <span class="day-date">DATE</span>
+    </div>
+    <div class="day">
+        <span class="day-name">Monday</span>
+        <span class="day-date">DATE</span>
+      </div>
+      <div class="day">
+        <span class="day-name">Monday</span>
+        <span class="day-date">DATE</span>
+      </div>
+      <div class="day">
+        <span class="day-name">Monday</span>
+        <span class="day-date">DATE</span>
+      </div>
+      <div class="day">
+        <span class="day-name">Monday</span>
+        <span class="day-date">DATE</span>
+      </div>
+      
+    <!-- Repeat for each day of the week -->
+  </div>
+</body>
+</html>

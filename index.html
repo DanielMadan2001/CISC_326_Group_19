@@ -573,16 +573,14 @@
 
                 <!-- PDF Content Column -->
                 <div class="pdf-content-column">
-                    <!-- Hidden content divs -->
-                    <div id="reportContent" class="hiddenContent">
-                        <!--<embed src="A1/A1_Report.pdf" type="application/pdf" width="100%" height="600px" /> -->
+                    <div id="reportContentA2" class="hiddenContent">
+                        <embed src="A1/CISC 322_326 A2.pdf" type="application/pdf" width="100%" height="600px" />
                     </div>
-                    <div id="slidesContent" class="hiddenContent">
-                       <!-- <embed src="A1/A1_Slides.pdf" type="application/pdf" width="100%" height="600px" /> -->
+                    <div id="slidesContentA2" class="hiddenContent">
+                        <embed src="A1/A2 Presentation.pdf" type="application/pdf" width="100%" height="600px" />
                     </div>
-                    <div id="videoContent" class="hiddenContent">
-                       <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/xLFytgNyK8Y" frameborder="0"
-                            allowfullscreen></iframe> -->
+                    <div id="videoContentA2" class="hiddenContent">
+                        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=xaWbYsrjwZg" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -608,10 +606,12 @@
             }
 
             function showContent(contentId) {
-                var content = document.getElementById(contentId + 'Content');
-                var button = document.querySelector('button[onclick="showContent(\'' + contentId + '\')"]');
-                var listItem = button.parentElement; // Get the parent <li> element
+                var activeTab = document.querySelector('.tablinks.active').textContent;
+                var contentSuffix = (activeTab === 'A2 Page') ? 'A2' : '';
 
+                var content = document.getElementById(contentId + 'Content' + contentSuffix);
+                var button = document.querySelector('button[onclick="showContent(\'' + contentId + '\')"]');
+                var listItem = button.parentElement;
                 // Check if the content is currently displayed
                 if (content.style.display === 'block') {
                     // If it is, hide it and remove the active class from the <li> parent
